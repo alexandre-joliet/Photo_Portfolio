@@ -1,10 +1,11 @@
-"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-import ImageComponent from "./Components/ImageComponent/page";
 import Header from "./Components/Header/page";
+import handleFetch from "@/utils/fetch";
 
-const Home = () => {
+const Home = async () => {
+  // const data = await handleFetch.fetchAllImages();
+
   return (
     <>
       <main className={styles.main}>
@@ -15,11 +16,86 @@ const Home = () => {
             <Image
               src="/images/avatar.jpg"
               fill
-              objectFit="cover"
               alt="Picture of the author"
               className={styles.image}
             ></Image>
           </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/avatar.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/test.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/test.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/avatar.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/test.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/avatar.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/avatar.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+          <div className={styles.image_wrapper}>
+            <Image
+              src="/images/avatar.jpg"
+              fill
+              alt="Picture of the author"
+              className={styles.image}
+            ></Image>
+          </div>
+
+          {/* MAP */}
+          {/* {data.map((item: any) => (
+            <div key={item.id} className={styles.image_wrapper}>
+              <Image
+                src={item.url}
+                fill
+                alt="Picture of the author"
+                className={styles.image}
+              ></Image>
+            </div>
+          ))} */}
         </div>
       </main>
     </>
