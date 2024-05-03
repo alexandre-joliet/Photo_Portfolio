@@ -36,8 +36,9 @@
   --48px: 3rem;
   --64px: 4rem;
 
-  --margin-bottom-small: 1rem;
-  --margin-bottom-large: 3rem;
+  --margin-small: 1rem;
+  --margin-medium: 2rem;
+  --margin-large: 3rem;
 
   --box-shadow-default: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
   --box-shadow-default-hover: 20px 20px 75px #cccccc, -20px -20px 75px #ffffff;
@@ -64,7 +65,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: "Lato", ui-monospace, Menlo, Monaco, "Cascadia Mono",
+  font-family: "Urbanist", ui-monospace, Menlo, Monaco, "Cascadia Mono",
     "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
     "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
@@ -120,4 +121,118 @@ a {
   color: inherit;
   text-underline-offset: 0.2rem;
   /* text-decoration: none; */
+}
+
+/***** FONTS *****/
+/* urbanist-100 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/urbanist-v15-latin-100.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-100italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 100;
+  src: url("/fonts/urbanist-v15-latin-100italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/urbanist-v15-latin-200.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-200italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 200;
+  src: url("/fonts/urbanist-v15-latin-200italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/urbanist-v15-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-300italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 300;
+  src: url("/fonts/urbanist-v15-latin-300italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/urbanist-v15-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/urbanist-v15-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/urbanist-v15-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-500italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/urbanist-v15-latin-500italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/urbanist-v15-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/urbanist-v15-latin-700italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/urbanist-v15-latin-900.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-900italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 900;
+  src: url("/fonts/urbanist-v15-latin-900italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
