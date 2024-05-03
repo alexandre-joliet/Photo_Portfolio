@@ -1,0 +1,35 @@
+.header {
+  padding-right: var(--48px);
+}
+
+.header_title {
+  font-size: var(--48px);
+  font-weight: 200;
+  margin-bottom: var(--margin-small);
+}
+
+.header_subtitle {
+  border-bottom: 1px solid #e5e5e5;
+  font-weight: 700;
+  font-size: var(--24px);
+  padding-bottom: var(--10px);
+  margin-bottom: var(--margin-medium);
+}
+
+.nav_categories {
+  font-size: var(--20px);
+  font-weight: 500;
+}
+
+.nav_categories:not(:first-child) {
+  margin-top: var(--16px);
+}
+
+.nav_links {
+  text-decoration: none;
+}
+
+.list_item {
+  list-style-type: none;
+  padding-left: var(--16px);
+}
