@@ -18,12 +18,13 @@ const Folder = async ({ params }: any) => {
         </h1>
         <div className={styles.images_container}>
           {data.imagesArray.map((item: any) => (
-            <div key={item.id} className={styles.image_wrapper}>
+            <div key={item.asset_id} className={styles.image_wrapper}>
               <Image
                 src={item.url}
                 fill
                 alt="Picture of the author"
                 className={styles.image}
+                sizes="(max-width: 1440px) 100vw, 50vw"
               ></Image>
             </div>
           ))}
