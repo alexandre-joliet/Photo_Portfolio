@@ -1,8 +1,10 @@
 .header {
   padding-right: var(--48px);
+  position: fixed;
 }
 
 .header_title {
+  color: black;
   font-size: var(--48px);
   font-weight: 200;
   margin-bottom: var(--margin-small);
@@ -25,8 +27,15 @@
   margin-top: var(--16px);
 }
 
+.header_link,
 .nav_links {
   text-decoration: none;
+  transition: all ease-in-out 300ms;
+}
+
+.header_link:hover,
+.nav_links:hover {
+  font-weight: 500;
 }
 
 .list_item {
