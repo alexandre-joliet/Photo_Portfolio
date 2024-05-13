@@ -2,12 +2,18 @@ import cloudinary from "./cloudinary";
 import { ImageProps } from "./types";
 
 const handleFetch = {
- fetchAllImages : async () => {
+ fetchAllImages : async (tag: any) => {
   const results = await cloudinary.v2.search
-    .expression(`folder:samples`)
+    .expression(`tags:${tag}`)
     .sort_by("public_id", "desc")
     .max_results(400)
     .execute();
+
+    // console.log(results);
+
+    let folderName = results.resources[0].folder;
+    const splitFolderName = folderName.split('/');
+    folderName = splitFolderName[splitFolderName.length - 1]
 
     let imagesArray: ImageProps[] = [];
 
@@ -23,7 +29,7 @@ const handleFetch = {
       })
     }
 ;    
-  return imagesArray;
+  return { folderName, imagesArray };
 },
 }
 
