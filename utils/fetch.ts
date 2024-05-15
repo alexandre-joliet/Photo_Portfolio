@@ -4,8 +4,8 @@ import { ImageProps } from "./types";
 const handleFetch = {
  fetchAllImages : async (tag: any) => {
   const results = await cloudinary.v2.search
-    .expression(`tags:${tag}`)
-    .sort_by("public_id", "desc")
+    .expression(`tags=${tag}`)
+    .sort_by("public_id", "asc")
     .max_results(400)
     .execute();
 
