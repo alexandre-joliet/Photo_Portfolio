@@ -2,8 +2,8 @@
   --max-width: 1920px;
   --max-width-content: 1200px;
 
-  --border-radius: 15px;
-  --border-radius-infoscards: 20px;
+  --border-radius-small: 10px;
+  --border-radius-medium: 20px;
   --border-radius-button: 50px;
 
   /***** COLORS *****/
@@ -203,6 +203,22 @@ a {
   font-style: italic;
   font-weight: 500;
   src: url("/fonts/urbanist-v15-latin-500italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/urbanist-v15-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* urbanist-600italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Urbanist";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../fonts/urbanist-v15-latin-600italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* urbanist-700 - latin */
 @font-face {
