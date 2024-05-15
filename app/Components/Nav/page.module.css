@@ -1,0 +1,157 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav_button {
+  display: none;
+}
+
+.nav_list {
+  font-size: var(--22px);
+}
+
+.nav_categories {
+  font-size: var(--18px);
+  font-weight: 600;
+}
+
+.nav_categories:not(:first-child) {
+  margin-top: var(--16px);
+}
+
+.nav_links,
+.list_folder {
+  font-size: var(--16px);
+}
+
+.nav_links {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.nav_list,
+.nav_links:hover {
+  font-weight: 700;
+}
+
+.list_folder {
+  font-weight: 500;
+}
+
+.list_folder,
+.list_item {
+  padding-left: var(--16px);
+}
+
+.list_item {
+  border-radius: 5px;
+  list-style-type: none;
+  transition: all ease-in-out 300ms;
+}
+
+.list_item:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(172, 172, 172, 1) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  color: white;
+}
+
+/***** MEDIA QUERIES *****/
+@media all and (max-width: 767px) {
+  .nav_container {
+    padding: 6rem var(--48px) 0 var(--24px);
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .nav_container {
+    padding: 8rem var(--48px) 0 var(--48px);
+  }
+}
+
+@media all and (max-width: 1023px) {
+  .nav_categories {
+    font-size: var(--18px);
+    font-weight: 500;
+  }
+
+  .nav_button {
+    background: transparent;
+    border: none;
+    display: block;
+    outline: none;
+    padding: 1rem 0;
+    transition: all ease-in-out 500ms;
+    z-index: 99;
+  }
+
+  .nav_container {
+    background-color: white;
+    box-shadow: 2px 2px 20px 1px rgba(212, 212, 212, 0.5);
+    display: flex;
+    flex-direction: column;
+    /* padding: 8rem var(--48px) 0 var(--48px); */
+    max-width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: -100vw;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    transition: all 500ms ease-in-out;
+    visibility: hidden;
+  }
+
+  .open_nav {
+    left: 0;
+    visibility: visible;
+  }
+
+  .button_bar,
+  .button_bar::before,
+  .button_bar::after {
+    background: black;
+    border-radius: 3px;
+    display: block;
+    width: var(--40px);
+    height: 0.2rem;
+    position: relative;
+    transition: all ease-in-out 500ms;
+  }
+
+  .button_bar::before,
+  .button_bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .button_bar::before {
+    transform: translateY(-12px);
+  }
+
+  .button_bar::after {
+    transform: translateY(12px);
+  }
+
+  .open_nav .button_bar::before {
+    transform: rotate(45deg);
+  }
+
+  .open_nav .button_bar {
+    background: transparent;
+    width: 0;
+  }
+
+  .open_nav .button_bar::after {
+    transform: rotate(-45deg);
+  }
+
+  .nav_button:hover {
+    cursor: pointer;
+  }
+}
