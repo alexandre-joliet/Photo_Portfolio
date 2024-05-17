@@ -20,7 +20,7 @@
 }
 
 .header_subtitle {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--light-variation-deco-border);
   font-weight: 700;
   font-size: var(--24px);
   padding-bottom: var(--10px);
