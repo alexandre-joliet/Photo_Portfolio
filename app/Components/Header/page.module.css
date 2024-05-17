@@ -2,10 +2,13 @@
   /* background-color: white; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* padding-right: var(--48px); */
   position: fixed;
-  max-width: 275px;
+  top: var(--48px);
+  bottom: 0;
+  overflow-y: auto;
+  width: 275px;
   z-index: 99;
 }
 
@@ -33,6 +36,7 @@
     align-items: flex-start;
     /* padding-right: var(--24px); */
     position: relative;
+    top: 0;
     width: 100%;
     max-width: 100%;
   }
