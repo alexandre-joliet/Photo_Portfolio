@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "../../page.module.css";
 import { useState } from "react";
-import Modal from "@/app/Components/Modal/page";
+import Modal from "@/app/Components/Modal/Modal";
 import { ImageProps } from "@/utils/types";
 
 type PhotoDisplayProps = {
@@ -22,6 +22,10 @@ const PhotoDisplay = ({ data }: PhotoDisplayProps) => {
     console.log(item);
     setImageInfos(item);
     setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
   };
 
   return (
@@ -49,8 +53,7 @@ const PhotoDisplay = ({ data }: PhotoDisplayProps) => {
         ))}
         <Modal
           openModal={openModal}
-          closeModal={() => setOpenModal(false)}
-          images={images}
+          handleCloseModal={() => handleCloseModal()}
           selectedImage={imageInfos}
         />
       </div>
