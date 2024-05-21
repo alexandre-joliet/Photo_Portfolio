@@ -4,18 +4,12 @@ import styles from "./page.module.css";
 
 type ModalProps = {
   openModal: boolean;
-  closeModal: () => void;
-  images: ImageProps[];
+  handlecloseModal: () => void;
   selectedImage: ImageProps | any;
 };
 
-const Modal = ({
-  openModal,
-  closeModal,
-  images,
-  selectedImage,
-}: ModalProps) => {
-  console.log(selectedImage);
+const Modal = ({ openModal, handlecloseModal, selectedImage }: ModalProps) => {
+  // console.log(selectedImage);
 
   return (
     <>
@@ -31,7 +25,7 @@ const Modal = ({
             ></Image>
           </div>
           <form method="dialog" className={styles.modal_container}>
-            <button onClick={closeModal} className={styles.modal_button}>
+            <button onClick={handlecloseModal} className={styles.modal_button}>
               X
             </button>
           </form>
