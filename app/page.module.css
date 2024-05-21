@@ -7,12 +7,17 @@
 }
 
 .page_title {
-  /* margin-top: 10rem; */
+  border-left: 1px solid var(--light-variation-deco-border);
   font-size: var(--24px);
   font-weight: 200;
   margin-bottom: var(--margin-small);
-  text-align: right;
+  margin-top: 1.6rem;
+  padding-left: var(--16px);
   width: 100%;
+}
+
+.page_title b {
+  font-weight: 500;
 }
 
 .main_wrapper {
@@ -34,7 +39,7 @@
   cursor: zoom-in;
   position: relative;
   height: 400px;
-  width: 45%;
+  width: 47.5%;
   transition: all ease-in-out 300ms;
 }
 
@@ -64,6 +69,8 @@
 
 @media all and (max-width: 1023px) {
   .page_title {
+    font-size: var(--18px);
+    margin-top: var(--margin-small);
     text-align: left;
   }
 
@@ -117,12 +124,14 @@
 @media all and (min-width: 1800px) and (max-width: 2047px) {
   .image_wrapper {
     height: 400px;
+    width: 48%;
   }
 }
 
 @media all and (min-width: 2048px) {
   .image_wrapper {
     height: 500px;
+    width: 48.5%;
   }
 }
 
