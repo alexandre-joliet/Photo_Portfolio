@@ -2,7 +2,7 @@ import cloudinary from "./cloudinary";
 import { ImageProps } from "./types";
 
 const handleFetch = {
- fetchAllImages : async (tag: any) => {
+ fetchAllImages : async (tag: string) => {
   const results = await cloudinary.v2.search
     .expression(`tags=${tag}`)
     .sort_by("public_id", "asc")
@@ -11,7 +11,7 @@ const handleFetch = {
 
     // console.log(results);
 
-    let folderName = results.resources[0].folder;
+    let folderName: string = results.resources[0].folder;
     const splitFolderName = folderName.split('/');
     folderName = splitFolderName[splitFolderName.length - 1]
 
