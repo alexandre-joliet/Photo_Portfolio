@@ -1,5 +1,4 @@
 import { ImageProps } from "@/utils/types";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -16,17 +15,6 @@ const Modal = ({
   images,
   selectedImage,
 }: ModalProps) => {
-  const ref = useRef();
-
-  useEffect(() => {
-    console.log(openModal);
-    // if (openModal) {
-    //   ref.current?.showModal();
-    // } else {
-    //   ref.current?.close();
-    // }
-  }, [openModal]);
-
   console.log(selectedImage);
 
   return (
