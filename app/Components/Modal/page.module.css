@@ -1,0 +1,38 @@
+.modal_bg {
+  background-color: rgb(255 255 255 / 30%);
+  backdrop-filter: blur(15px);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99;
+}
+
+.modal_image_container {
+  position: relative;
+  width: 80%;
+  height: 75%;
+  margin-bottom: var(--margin-medium);
+}
+
+.modal_image {
+  object-fit: contain;
+}
+
+.modal_button {
+  border-radius: var(--border-radius-button);
+  background-color: black;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: var(--10px) var(--24px);
+}
