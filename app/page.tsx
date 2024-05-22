@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import Header from "./Components/Header/page";
+import Header from "./Components/Header/Header";
 import handleFetch from "@/utils/fetch";
 import { NextPage } from "next";
 import Image from "next/image";

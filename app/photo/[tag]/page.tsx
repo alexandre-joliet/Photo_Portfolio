@@ -1,4 +1,4 @@
-import Header from "@/app/Components/Header/page";
+import Header from "@/app/Components/Header/Header";
 import styles from "../../page.module.css";
 import handleFetch from "@/utils/fetch";
 import PhotoDisplay from "./PhotoDisplay";
