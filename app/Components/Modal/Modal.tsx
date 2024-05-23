@@ -21,6 +21,8 @@ const Modal = ({
 }: ModalProps) => {
   const [imageShown, setImageShown] = useState(selectedImage);
   const [url, setUrl] = useState("");
+  const [frame, setFrame] = useState(false);
+  const [padding, setPadding] = useState(false);
 
   useEffect(() => {
     if (selectedImage) {
@@ -53,6 +55,26 @@ const Modal = ({
     setImageShown(nextImage);
   };
 
+  const handleFrameOptions = () => {
+    if (!frame) {
+      setFrame(true);
+    } else {
+      setFrame(false);
+    }
+  };
+
+  const isFramed = frame ? `${styles.image_frame}` : "";
+
+  const handlePaddingOptions = () => {
+    if (!padding) {
+      setPadding(true);
+    } else {
+      setPadding(false);
+    }
+  };
+
+  const isPadded = padding ? `${styles.image_padding}` : "";
+
   return (
     <>
       {openModal && (
@@ -63,7 +85,7 @@ const Modal = ({
               width={2048}
               height={1024}
               alt="Picture of the author"
-              className={styles.modal_image}
+              className={`${styles.modal_image} ${isFramed} ${isPadded}`}
               sizes="(max-width: 1440px) 100vw, 80vw"
             ></Image>
           </div>
@@ -86,6 +108,27 @@ const Modal = ({
             >
               <Image src={nextIcon} alt="Image suivant"></Image>
             </button>
+            <button
+              onClick={handleNextImage}
+              className={`${styles.modal_button} ${styles.button_arrows}`}
+            >
+              {" "}
+              Options
+            </button>
+            <label htmlFor="frame">Cadre</label>
+            <input
+              type="checkbox"
+              name="frame"
+              id="frame"
+              onClick={handleFrameOptions}
+            ></input>
+            <label htmlFor="frame">Passe-partout</label>
+            <input
+              type="checkbox"
+              name="padding"
+              id="padding"
+              onClick={handlePaddingOptions}
+            ></input>
           </form>
         </dialog>
       )}

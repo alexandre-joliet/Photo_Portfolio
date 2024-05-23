@@ -21,12 +21,12 @@
 .modal_image_container {
   display: flex;
   justify-content: center;
-  max-height: 75%;
+  max-height: 100%;
   margin-bottom: var(--16px);
 }
 
 .modal_image {
-  /* border: 10px solid black; */
+  box-shadow: var(--shadow-elevation-medium);
   width: auto;
   height: auto;
 }
@@ -34,7 +34,10 @@
 .modal_buttons_container {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--24px);
+  position: absolute;
+  bottom: var(--48px);
 }
 
 .modal_button {
@@ -42,7 +45,9 @@
   border: none;
   border-radius: var(--border-radius-button);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  color: white;
   cursor: pointer;
+  font-weight: 400;
   padding: var(--10px);
   outline: none;
   transition: all ease-in-out 300ms;
@@ -61,8 +66,16 @@
   transform: translateX(0.3rem);
 }
 
+.image_frame {
+  border: 1rem solid black;
+}
+
+.image_padding {
+  padding: 2rem;
+}
+
 /***** MEDIA QUERIES *****/
-@media all and (max-width: 767px) {
+@media all and (max-width: 1023px) {
   .modal_bg {
     padding: var(--24px);
   }
