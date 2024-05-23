@@ -19,7 +19,6 @@ const PhotoDisplay = ({ data }: PhotoDisplayProps) => {
   const images = data.imagesArray;
 
   const handleModalActions = (item: ImageProps) => {
-    console.log(item);
     setImageInfos(item);
     setOpenModal(true);
   };
@@ -40,7 +39,6 @@ const PhotoDisplay = ({ data }: PhotoDisplayProps) => {
             key={item.asset_id}
             className={styles.image_wrapper}
             onClick={() => handleModalActions(item)}
-            // onClick={() => setOpenModal(true)}
           >
             <Image
               src={item.url}
@@ -55,6 +53,7 @@ const PhotoDisplay = ({ data }: PhotoDisplayProps) => {
           openModal={openModal}
           handleCloseModal={() => handleCloseModal()}
           selectedImage={imageInfos}
+          images={images}
         />
       </div>
     </>
