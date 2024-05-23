@@ -26,7 +26,8 @@ const handleFetch = {
         height: result.height,
         width: result.width,
         url: result.secure_url,
-      })
+      });
+      i++;
     }
 ;    
   return { folderName, imagesArray };
