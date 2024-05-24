@@ -108,27 +108,35 @@ const Modal = ({
             >
               <Image src={nextIcon} alt="Image suivant"></Image>
             </button>
+            {/* <div className={styles.image_options_container}> */}
             <button
               onClick={handleNextImage}
-              className={`${styles.modal_button} ${styles.button_arrows}`}
+              className={`${styles.modal_button} ${styles.button_option}`}
             >
               {" "}
               Options
             </button>
-            <label htmlFor="frame">Cadre</label>
-            <input
-              type="checkbox"
-              name="frame"
-              id="frame"
-              onClick={handleFrameOptions}
-            ></input>
-            <label htmlFor="frame">Passe-partout</label>
-            <input
-              type="checkbox"
-              name="padding"
-              id="padding"
-              onClick={handlePaddingOptions}
-            ></input>
+            <div className={styles.image_options_content}>
+              <div className={styles.image_option_item}>
+                <label htmlFor="frame">Cadre</label>
+                <input
+                  type="checkbox"
+                  name="frame"
+                  id="frame"
+                  onClick={handleFrameOptions}
+                ></input>
+              </div>
+              <div className={styles.image_option_item}>
+                <label htmlFor="frame">Passe-partout</label>
+                <input
+                  type="checkbox"
+                  name="padding"
+                  id="padding"
+                  onClick={handlePaddingOptions}
+                ></input>
+              </div>
+            </div>
+            {/* </div> */}
           </form>
         </dialog>
       )}

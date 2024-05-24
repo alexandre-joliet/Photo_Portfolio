@@ -66,6 +66,22 @@
   transform: translateX(0.3rem);
 }
 
+.image_options_container > * {
+  margin-right: var(--16px);
+}
+
+.image_options_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.image_option_item {
+  display: flex;
+  gap: var(--16px);
+  align-items: center;
+  justify-content: space-between;
+}
+
 .image_frame {
   border: 1rem solid black;
 }
@@ -78,5 +94,10 @@
 @media all and (max-width: 1023px) {
   .modal_bg {
     padding: var(--24px);
+  }
+
+  .button_option,
+  .image_options_content {
+    display: none;
   }
 }
