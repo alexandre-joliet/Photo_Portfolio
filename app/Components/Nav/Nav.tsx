@@ -2,8 +2,8 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import expandToggler from "../../../public/icons/expand_more_black_24dp.svg";
+import { menuItems } from "../../../utils/menuItems";
+import Accordion from "./Accordion/Accordion";
 
 const Nav = () => {
   const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
@@ -30,6 +30,10 @@ const Nav = () => {
     };
   }, []);
 
+  // ***** MENU ITEMS *****
+  const normandyBeactRace = menuItems.normandyBeachRace;
+  const usMotorShow = menuItems.usMotorShow;
+
   return (
     <>
       <nav className={`${styles.nav} ${openClass}`} ref={elementRef}>
@@ -45,7 +49,9 @@ const Nav = () => {
               <li className={styles.list_item}>Test fetch</li>
             </Link>
             <p className={styles.nav_categories}>Véhicules</p>
-            <ul className={styles.list_folder}>
+            <Accordion data={normandyBeactRace} />
+            <Accordion data={usMotorShow} />
+            {/* <ul className={styles.list_folder}>
               Normandy Beach Race
               <Link
                 href="/photo/normandy_beach_race21"
@@ -59,8 +65,8 @@ const Nav = () => {
               >
                 <li className={styles.list_item}>2023</li>
               </Link>
-            </ul>
-            <ul className={styles.list_folder}>
+            </ul> */}
+            {/* <ul className={styles.list_folder}>
               US Motor Show
               <Link
                 href="/photo/us_motor_show22-classic"
@@ -74,7 +80,7 @@ const Nav = () => {
               >
                 <li className={styles.list_item}>2022 - Modern</li>
               </Link>
-            </ul>
+            </ul> */}
             <p className={styles.nav_categories}>Voyage</p>
             <Link href="/photo/202304_menorca" className={styles.nav_links}>
               <li className={styles.list_item}>2023.04 - Menorca</li>
