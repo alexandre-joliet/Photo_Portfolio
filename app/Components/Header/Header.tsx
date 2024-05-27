@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import styles from "./page.module.css";
-import Nav from "../Nav/page";
+import Nav from "../Nav/Nav";
 
 const Header = () => {
   return (
