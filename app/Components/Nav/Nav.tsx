@@ -51,36 +51,6 @@ const Nav = () => {
             <p className={styles.nav_categories}>Véhicules</p>
             <Accordion data={normandyBeactRace} />
             <Accordion data={usMotorShow} />
-            {/* <ul className={styles.list_folder}>
-              Normandy Beach Race
-              <Link
-                href="/photo/normandy_beach_race21"
-                className={styles.nav_links}
-              >
-                <li className={styles.list_item}>2021</li>
-              </Link>
-              <Link
-                href="/photo/normandy_beach_race23"
-                className={styles.nav_links}
-              >
-                <li className={styles.list_item}>2023</li>
-              </Link>
-            </ul> */}
-            {/* <ul className={styles.list_folder}>
-              US Motor Show
-              <Link
-                href="/photo/us_motor_show22-classic"
-                className={styles.nav_links}
-              >
-                <li className={styles.list_item}>2022 - Classic</li>
-              </Link>
-              <Link
-                href="/photo/us_motor_show22-modern"
-                className={styles.nav_links}
-              >
-                <li className={styles.list_item}>2022 - Modern</li>
-              </Link>
-            </ul> */}
             <p className={styles.nav_categories}>Voyage</p>
             <Link href="/photo/202304_menorca" className={styles.nav_links}>
               <li className={styles.list_item}>2023.04 - Menorca</li>
@@ -90,6 +60,35 @@ const Nav = () => {
             </Link>
             <Link href="/photo/202106_corse" className={styles.nav_links}>
               <li className={styles.list_item}>2021.06 - Corse</li>
+            </Link>
+            <Link href="/photo/202003_srilanka" className={styles.nav_links}>
+              <li className={styles.list_item}>2020.03 - Sri Lanka</li>
+            </Link>
+            {/* <Link href="/photo/201911_lisboa" className={styles.nav_links}>
+              <li className={styles.list_item}>2019.11 - Lisboa</li>
+            </Link> */}
+            <Link href="/photo/201907_lozere" className={styles.nav_links}>
+              <li className={styles.list_item}>2019.07 - Lozère & Vercors</li>
+            </Link>
+            <Link href="/photo/201810_bali" className={styles.nav_links}>
+              <li className={styles.list_item}>2018.10 - Bali</li>
+            </Link>
+            <Link href="/photo/201805_venise" className={styles.nav_links}>
+              <li className={styles.list_item}>2018.05 - Venise</li>
+            </Link>
+            <Link href="/photo/201710_bali" className={styles.nav_links}>
+              <li className={styles.list_item}>2017.10 - Bali</li>
+            </Link>
+            <Link href="/photo/201701_abudhabi" className={styles.nav_links}>
+              <li className={styles.list_item}>2017.01 - Abu Dhabi</li>
+            </Link>
+            <Link href="/photo/201701_dubai" className={styles.nav_links}>
+              <li className={styles.list_item}>2017.01 - Dubaï</li>
+            </Link>
+            <Link href="/photo/201701_dubaimarina" className={styles.nav_links}>
+              <li className={styles.list_item}>
+                2017.01 - Dubaï Marina by Night
+              </li>
             </Link>
           </ul>
         </div>
