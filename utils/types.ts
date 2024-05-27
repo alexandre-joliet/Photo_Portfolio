@@ -5,4 +5,15 @@ export type ImageProps = {
   height: string;
   width: string;
   url: string;
+};
+
+
+export type MenuItemsProps = {
+  title: string,
+  content: 
+    {
+      title: string
+      url: string
+    } [],
 }
+
