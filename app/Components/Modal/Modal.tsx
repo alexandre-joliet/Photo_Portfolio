@@ -79,6 +79,12 @@ const Modal = ({
     <>
       {openModal && (
         <dialog open className={styles.modal_bg}>
+          <button
+            onClick={handleCloseModal}
+            className={`${styles.modal_button} ${styles.button_close} ${styles.button_close_mobile} ${styles.hidden_mobile}`}
+          >
+            <Image src={closeIcon} alt="Fermer"></Image>
+          </button>
           <div className={styles.modal_image_container}>
             <Image
               src={url}
@@ -89,28 +95,43 @@ const Modal = ({
               sizes="(max-width: 1440px) 100vw, 80vw"
             ></Image>
           </div>
+          <div
+            className={`${styles.mobile_buttons_container} ${styles.hidden_mobile}`}
+          >
+            <button
+              onClick={handlePreviousImage}
+              className={`${styles.modal_button} ${styles.button_arrows} `}
+            >
+              <Image src={previousIcon} alt="Image précédente"></Image>
+            </button>
+            <button
+              onClick={handleNextImage}
+              className={`${styles.modal_button} ${styles.button_arrows} `}
+            >
+              <Image src={nextIcon} alt="Image suivant"></Image>
+            </button>
+          </div>
           <form method="dialog" className={styles.modal_buttons_container}>
             <button
               onClick={handlePreviousImage}
-              className={`${styles.modal_button} ${styles.button_arrows}`}
+              className={`${styles.modal_button} ${styles.button_arrows} ${styles.hidden_desktop}`}
             >
               <Image src={previousIcon} alt="Image précédente"></Image>
             </button>
             <button
               onClick={handleCloseModal}
-              className={`${styles.modal_button} ${styles.button_close}`}
+              className={`${styles.modal_button} ${styles.button_close} ${styles.hidden_desktop}`}
             >
               <Image src={closeIcon} alt="Fermer"></Image>
             </button>
             <button
               onClick={handleNextImage}
-              className={`${styles.modal_button} ${styles.button_arrows}`}
+              className={`${styles.modal_button} ${styles.button_arrows} ${styles.hidden_desktop}`}
             >
               <Image src={nextIcon} alt="Image suivant"></Image>
             </button>
             {/* <div className={styles.image_options_container}> */}
             <button
-              onClick={handleNextImage}
               className={`${styles.modal_button} ${styles.button_option}`}
             >
               {" "}
