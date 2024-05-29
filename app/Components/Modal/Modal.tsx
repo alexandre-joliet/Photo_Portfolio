@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import closeIcon from "../../../public/icons/close_white_48dp.svg";
 import previousIcon from "../../../public/icons/arrow_back_white-24dp.svg";
 import nextIcon from "../../../public/icons/arrow_forward_white-24dp.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ModalProps = {
   openModal: boolean;
@@ -19,10 +19,9 @@ const Modal = ({
   selectedImage,
   images,
 }: ModalProps) => {
+  // ***** IMAGE *****
   const [imageShown, setImageShown] = useState(selectedImage);
   const [url, setUrl] = useState("");
-  const [frame, setFrame] = useState(false);
-  const [padding, setPadding] = useState(false);
 
   useEffect(() => {
     if (selectedImage) {
@@ -55,25 +54,24 @@ const Modal = ({
     setImageShown(nextImage);
   };
 
-  const handleFrameOptions = () => {
-    if (!frame) {
-      setFrame(true);
-    } else {
-      setFrame(false);
-    }
+  // ***** OPTIONS *****
+  const [frameValue, setFrameValue] = useState("");
+  const [inputFrameValue, setInputFrameValue] = useState(0);
+  const [paddingValue, setPaddingValue] = useState("");
+  const [inputPaddingValue, setInputPaddingValue] = useState(0);
+
+  const handleFrameOptions = (value: any) => {
+    setInputFrameValue(value);
+    setFrameValue(`${value}px solid black`);
   };
 
-  const isFramed = frame ? `${styles.image_frame}` : "";
-
-  const handlePaddingOptions = () => {
-    if (!padding) {
-      setPadding(true);
-    } else {
-      setPadding(false);
-    }
+  const handlePaddingOptions = (value: any) => {
+    setInputPaddingValue(value);
+    setPaddingValue(`${value}px`);
   };
 
-  const isPadded = padding ? `${styles.image_padding}` : "";
+  // const isFramed = frame ? `${styles.image_frame}` : "";
+  // const isPadded = padding ? `${styles.image_padding}` : "";
 
   return (
     <>
@@ -91,8 +89,13 @@ const Modal = ({
               width={2048}
               height={1024}
               alt="Picture of the author"
-              className={`${styles.modal_image} ${isFramed} ${isPadded}`}
+              className={`${styles.modal_image}`}
               sizes="(max-width: 1440px) 100vw, 80vw"
+              style={{
+                border: frameValue,
+                padding: paddingValue,
+                boxShadow: "inset 0 0 5px 2px rgba(0, 0, 0, 0.5)",
+              }}
             ></Image>
           </div>
           <div
@@ -128,7 +131,7 @@ const Modal = ({
               onClick={handleNextImage}
               className={`${styles.modal_button} ${styles.button_arrows} ${styles.hidden_desktop}`}
             >
-              <Image src={nextIcon} alt="Image suivant"></Image>
+              <Image src={nextIcon} alt="Image suivante"></Image>
             </button>
             {/* <div className={styles.image_options_container}> */}
             <button
@@ -139,22 +142,106 @@ const Modal = ({
             </button>
             <div className={styles.image_options_content}>
               <div className={styles.image_option_item}>
-                <label htmlFor="frame">Cadre</label>
-                <input
+                <label htmlFor="frame">Largeur du cadre</label>
+                {/* <input
                   type="checkbox"
                   name="frame"
                   id="frame"
                   onClick={handleFrameOptions}
-                ></input>
+                ></input> */}
+                <div className={styles.frame_input}>
+                  <input
+                    type="range"
+                    name="frame"
+                    id="frame"
+                    min="0"
+                    max="40"
+                    value={inputFrameValue}
+                    step="10"
+                    list="markers"
+                    onChange={(event) => handleFrameOptions(event.target.value)}
+                    className={styles.frame_input}
+                  ></input>
+                  <datalist id="markers" className={styles.datalist}>
+                    <option
+                      value="0"
+                      label="0"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="10"
+                      label="S"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="20"
+                      label="M"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="30"
+                      label="L"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="40"
+                      label="XL"
+                      className={styles.datalist_options}
+                    ></option>
+                  </datalist>
+                </div>
               </div>
               <div className={styles.image_option_item}>
-                <label htmlFor="frame">Passe-partout</label>
-                <input
+                <label htmlFor="padding">Largeur du passe-partout</label>
+                {/* <input
                   type="checkbox"
                   name="padding"
                   id="padding"
                   onClick={handlePaddingOptions}
-                ></input>
+                ></input> */}
+                <div className={styles.frame_input}>
+                  <input
+                    type="range"
+                    name="padding"
+                    id="padding"
+                    min="0"
+                    max="128"
+                    value={inputPaddingValue}
+                    step="32"
+                    list="markers"
+                    onChange={(event) =>
+                      handlePaddingOptions(event.target.value)
+                    }
+                    className={styles.frame_input}
+                  ></input>
+                  <datalist id="markers" className={styles.datalist}>
+                    <option
+                      value="0"
+                      label="0"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="32"
+                      label="S"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="64"
+                      label="M"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="96"
+                      label="L"
+                      className={styles.datalist_options}
+                    ></option>
+                    <option
+                      value="128"
+                      label="XL"
+                      className={styles.datalist_options}
+                    ></option>
+                  </datalist>
+                </div>
               </div>
             </div>
             {/* </div> */}

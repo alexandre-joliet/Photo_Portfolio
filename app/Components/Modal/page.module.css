@@ -29,6 +29,7 @@
   box-shadow: var(--shadow-elevation-medium);
   width: auto;
   height: auto;
+  pointer-events: none;
 }
 
 .modal_buttons_container {
@@ -98,12 +99,21 @@
   justify-content: space-between;
 }
 
-.image_frame {
-  border: 1rem solid black;
+.frame_input {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+  width: 200px;
 }
 
-.image_padding {
-  padding: 2rem;
+.datalist {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.datalist_options {
+  padding: 0;
 }
 
 .hidden_mobile {
@@ -113,7 +123,7 @@
 /***** MEDIA QUERIES *****/
 @media all and (max-width: 1023px) {
   .modal_bg {
-    padding: var(--48px) var(--24px);
+    padding: var(--24px);
   }
 
   .button_arrows:nth-child(1):hover {
