@@ -52,10 +52,11 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  margin: 0 5px 0 0;
 }
 
 .toggled {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 
 .list_folder {
