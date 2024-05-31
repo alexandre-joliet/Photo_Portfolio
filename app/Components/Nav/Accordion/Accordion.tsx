@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../page.module.css";
+import styles from "../nav.module.css";
 import Image from "next/image";
 import { MenuItemsProps } from "@/utils/types";
 import expandToggler from "../../../../public/icons/expand_more_black_24dp.svg";

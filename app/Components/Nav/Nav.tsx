@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "./page.module.css";
+import styles from "./nav.module.css";
 import { useEffect, useRef, useState } from "react";
 import { menuItems } from "../../../utils/menuItems";
 import Accordion from "./Accordion/Accordion";

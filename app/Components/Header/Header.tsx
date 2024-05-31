@@ -1,6 +1,5 @@
 "use client";
-import Link from "next/link";
-import styles from "./page.module.css";
+import styles from "./header.module.css";
 import Nav from "../Nav/Nav";
 
 const Header = () => {
