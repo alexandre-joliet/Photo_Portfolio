@@ -58,6 +58,19 @@ const Modal = ({
   const [openOptions, setOpenOptions] = useState(false);
   const [coloredButton, setColoredButton] = useState(false);
 
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: any) => {
+    if (elementRef.current && !elementRef.current.contains(event.target)) {
+      setOpenOptions(false);
+      setColoredButton(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+  }, []);
+
   const handleOpenOptions = () => {
     setOpenOptions(!openOptions);
     setColoredButton(!coloredButton);
@@ -141,7 +154,7 @@ const Modal = ({
             >
               <Image src={nextIcon} alt="Image suivante"></Image>
             </button>
-            <div className={styles.image_options_container}>
+            <div ref={elementRef} className={styles.image_options_container}>
               <button
                 onClick={handleOpenOptions}
                 className={`${styles.modal_button} ${styles.button_option} ${setButtonColor}`}
