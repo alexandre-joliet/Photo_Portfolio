@@ -94,7 +94,7 @@
   display: none;
   background-color: white;
   border-radius: var(--border-radius-small);
-  box-shadow: var(--box-shadow-basic);
+  box-shadow: var(--box-shadow-basic-options);
   padding: var(--16px) var(--24px);
   position: absolute;
   top: -16rem;
@@ -114,9 +114,7 @@
 }
 
 .option_inputs {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
+  cursor: pointer;
   width: 200px;
 }
 
