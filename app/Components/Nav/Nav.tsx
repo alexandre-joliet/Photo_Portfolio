@@ -44,9 +44,16 @@ const Nav = () => {
           <ul className={styles.nav_list}>
             {" "}
             Galeries
-            <p className={styles.nav_categories}>Test</p>
+            {/* <p className={styles.nav_categories}>Test</p>
             <Link href="/photo/test" className={styles.nav_links}>
               <li className={styles.list_item}>Test fetch</li>
+            </Link> */}
+            <p className={styles.nav_categories}>Portraits</p>
+            <Link
+              href="/photo/portraits_mariana-sunflowers"
+              className={styles.nav_links}
+            >
+              <li className={styles.list_item}>Mariana - Sunflowers</li>
             </Link>
             <p className={styles.nav_categories}>Véhicules</p>
             <Accordion data={normandyBeactRace} />
