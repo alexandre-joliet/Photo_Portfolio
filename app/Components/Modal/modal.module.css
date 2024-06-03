@@ -26,7 +26,6 @@
 }
 
 .modal_image {
-  box-shadow: var(--shadow-elevation-medium);
   width: auto;
   height: auto;
   pointer-events: none;
@@ -49,12 +48,7 @@
 .modal_buttons_container {
   flex-wrap: wrap;
   gap: var(--24px);
-  /* background-color: rgba(255, 255, 255, 0.5);
-  border-radius: var(--border-radius-medium);
-  box-shadow: var(--box-shadow-basic-options); */
   padding: var(--16px) var(--24px);
-  /* position: absolute; */
-  /* bottom: var(--24px); */
 }
 
 .modal_button {
@@ -103,7 +97,6 @@
 
 .image_options_container {
   position: relative;
-  /* margin-right: var(--16px); */
 }
 
 .image_options_content {

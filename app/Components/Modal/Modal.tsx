@@ -131,7 +131,8 @@ const Modal = ({
               style={{
                 border: frameValue,
                 padding: paddingValue,
-                boxShadow: "inset 0 0 5px 2px rgba(0, 0, 0, 0.5)",
+                boxShadow:
+                  "inset 0 0 5px 2px rgba(0, 0, 0, 0.5), var(--shadow-elevation-medium)",
               }}
             ></Image>
           </div>
