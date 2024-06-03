@@ -21,7 +21,7 @@
 .modal_image_container {
   display: flex;
   justify-content: center;
-  max-height: 100%;
+  max-height: 90%;
   margin-bottom: var(--16px);
 }
 
@@ -37,8 +37,12 @@
   align-items: center;
   flex-wrap: wrap;
   gap: var(--24px);
+  /* background-color: rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-basic-options); */
+  padding: var(--16px) var(--24px);
   position: absolute;
-  bottom: var(--48px);
+  bottom: var(--24px);
 }
 
 .modal_button {
@@ -143,17 +147,16 @@
     padding: var(--24px);
   }
 
-  .button_option,
-  .image_options_content {
-    display: none;
-  }
-
   .hidden_mobile {
     display: flex;
   }
 
   .hidden_desktop {
     display: none;
+  }
+
+  .modal_image_container {
+    max-height: 100%;
   }
 }
 
@@ -164,5 +167,27 @@
 
   .hidden_desktop {
     display: block;
+  }
+}
+
+@media all and (min-height: 680px) {
+  .modal_image_container {
+    max-height: 90%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .button_option,
+  .image_options_container,
+  .image_options_content {
+    display: none;
+  }
+}
+
+@media all and (max-height: 500px) {
+  .button_option,
+  .image_options_container,
+  .image_options_content {
+    display: none;
   }
 }
