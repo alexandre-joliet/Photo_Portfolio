@@ -5,6 +5,7 @@ import closeIcon from "../../../public/icons/close_white_48dp.svg";
 import previousIcon from "../../../public/icons/arrow_back_white-24dp.svg";
 import nextIcon from "../../../public/icons/arrow_forward_white-24dp.svg";
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type ModalProps = {
   openModal: boolean;
@@ -49,6 +50,7 @@ const Modal = ({
     setUrl(previousImage.url);
     setImageShown(previousImage);
     setImageId(id - 1);
+    setDirection(-1);
   };
 
   const handleNextImage = () => {
@@ -68,6 +70,7 @@ const Modal = ({
     setUrl(nextImage.url);
     setImageShown(nextImage);
     setImageId(id + 1);
+    setDirection(1);
   };
 
   const handleArrowKeyDown = (event: any) => {
@@ -77,6 +80,30 @@ const Modal = ({
     if (event.key === "ArrowRight") {
       handleNextImage();
     }
+  };
+
+  // ***** MOTION FRAMER *****
+  const [direction, setDirection] = useState(0);
+
+  const variants = {
+    enter: (direction: number) => {
+      return {
+        x: direction > 0 ? 1000 : -1000,
+        opacity: 0,
+      };
+    },
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => {
+      return {
+        zIndex: 0,
+        x: direction < 0 ? 1000 : -1000,
+        opacity: 0,
+      };
+    },
   };
 
   // ***** OPTIONS *****
@@ -127,196 +154,221 @@ const Modal = ({
 
   return (
     <>
-      {openModal && (
-        <dialog open className={styles.modal_bg} onKeyDown={handleArrowKeyDown}>
-          <button
-            onClick={handleCloseModal}
-            className={`${styles.modal_button} ${styles.button_close} ${styles.button_close_mobile} ${styles.hidden_mobile}`}
+      <AnimatePresence>
+        {openModal && (
+          <motion.dialog
+            open
+            className={styles.modal_bg}
+            onKeyDown={handleArrowKeyDown}
+            key="dialog"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <Image src={closeIcon} alt="Fermer"></Image>
-          </button>
-          <div className={styles.modal_image_container}>
-            <Image
-              src={url}
-              width={2048}
-              height={1024}
-              alt="Picture of the author"
-              className={`${styles.modal_image}`}
-              sizes="(max-width: 1440px) 100vw, 80vw"
-              style={{
-                border: frameValue,
-                padding: paddingValue,
-                boxShadow:
-                  "inset 0 0 5px 2px rgba(0, 0, 0, 0.5), var(--shadow-elevation-medium)",
+            <button
+              onClick={handleCloseModal}
+              className={`${styles.modal_button} ${styles.button_close} ${styles.button_close_mobile} ${styles.hidden_mobile}`}
+            >
+              <Image src={closeIcon} alt="Fermer"></Image>
+            </button>
+            <motion.div
+              className={styles.modal_image_container}
+              key={url}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
               }}
-            ></Image>
-          </div>
-          <div
-            className={`${styles.mobile_buttons_container} ${styles.hidden_mobile}`}
-          >
-            <button
-              onClick={handlePreviousImage}
-              className={`${styles.modal_button} ${styles.button_arrows} `}
             >
-              <Image src={previousIcon} alt="Image précédente"></Image>
-            </button>
-            <button
-              onClick={handleNextImage}
-              className={`${styles.modal_button} ${styles.button_arrows} `}
+              <Image
+                src={url}
+                width={2048}
+                height={1024}
+                alt="Picture of the author"
+                className={`${styles.modal_image}`}
+                sizes="(max-width: 1440px) 100vw, 80vw"
+                style={{
+                  border: frameValue,
+                  padding: paddingValue,
+                  boxShadow:
+                    "inset 0 0 5px 2px rgba(0, 0, 0, 0.5), var(--shadow-elevation-medium)",
+                }}
+              ></Image>
+            </motion.div>
+            <div
+              className={`${styles.mobile_buttons_container} ${styles.hidden_mobile}`}
             >
-              <Image src={nextIcon} alt="Image suivante"></Image>
-            </button>
-          </div>
-          <div className={styles.modal_interaction_container}>
-            <p>
-              {imageId} / {imageNumber}
-            </p>
-            <form method="dialog" className={styles.modal_buttons_container}>
               <button
                 onClick={handlePreviousImage}
-                className={`${styles.modal_button} ${styles.button_arrows} ${styles.hidden_desktop}`}
+                className={`${styles.modal_button} ${styles.button_arrows} `}
               >
                 <Image src={previousIcon} alt="Image précédente"></Image>
               </button>
               <button
-                onClick={handleCloseModal}
-                className={`${styles.modal_button} ${styles.button_close} ${styles.hidden_desktop}`}
-              >
-                <Image src={closeIcon} alt="Fermer"></Image>
-              </button>
-              <button
                 onClick={handleNextImage}
-                className={`${styles.modal_button} ${styles.button_arrows} ${styles.hidden_desktop}`}
+                className={`${styles.modal_button} ${styles.button_arrows} `}
               >
                 <Image src={nextIcon} alt="Image suivante"></Image>
               </button>
-              <div ref={elementRef} className={styles.image_options_container}>
+            </div>
+            <div className={styles.modal_interaction_container}>
+              <p>
+                {imageId} / {imageNumber}
+              </p>
+              <form method="dialog" className={styles.modal_buttons_container}>
                 <button
-                  onClick={handleOpenOptions}
-                  className={`${styles.modal_button} ${styles.button_option} ${setButtonColor}`}
+                  onClick={handlePreviousImage}
+                  className={`${styles.modal_button} ${styles.button_arrows} ${styles.hidden_desktop}`}
                 >
-                  {" "}
-                  Options
+                  <Image src={previousIcon} alt="Image précédente"></Image>
+                </button>
+                <button
+                  onClick={handleCloseModal}
+                  className={`${styles.modal_button} ${styles.button_close} ${styles.hidden_desktop}`}
+                >
+                  <Image src={closeIcon} alt="Fermer"></Image>
+                </button>
+                <button
+                  onClick={handleNextImage}
+                  className={`${styles.modal_button} ${styles.button_arrows} ${styles.hidden_desktop}`}
+                >
+                  <Image src={nextIcon} alt="Image suivante"></Image>
                 </button>
                 <div
-                  className={`${styles.image_options_content} ${openOptionsContainer}`}
+                  ref={elementRef}
+                  className={styles.image_options_container}
                 >
-                  <div className={styles.image_option_item}>
-                    <label htmlFor="color" className={styles.option_title}>
-                      Couleur du cadre
-                    </label>
-                    <input
-                      type="color"
-                      name="color"
-                      id="color"
-                      value={frameColorValue}
-                      onChange={(event) =>
-                        handleColorOptions(event.target.value)
-                      }
-                    />
-                  </div>
-                  <div className={styles.image_option_item}>
-                    <label htmlFor="frame" className={styles.option_title}>
-                      Largeur du cadre
-                    </label>
-                    <div className={styles.option_inputs}>
+                  <button
+                    onClick={handleOpenOptions}
+                    className={`${styles.modal_button} ${styles.button_option} ${setButtonColor}`}
+                  >
+                    {" "}
+                    Options
+                  </button>
+                  <div
+                    className={`${styles.image_options_content} ${openOptionsContainer}`}
+                  >
+                    <div className={styles.image_option_item}>
+                      <label htmlFor="color" className={styles.option_title}>
+                        Couleur du cadre
+                      </label>
                       <input
-                        type="range"
-                        name="frame"
-                        id="frame"
-                        min="0"
-                        max="40"
-                        value={inputFrameValue}
-                        step="10"
-                        list="markers"
+                        type="color"
+                        name="color"
+                        id="color"
+                        value={frameColorValue}
                         onChange={(event) =>
-                          handleFrameOptions(event.target.value)
+                          handleColorOptions(event.target.value)
                         }
-                        className={styles.option_inputs}
-                      ></input>
-                      <datalist id="markers" className={styles.datalist}>
-                        <option
-                          value="0"
-                          label="0"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="10"
-                          label="S"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="20"
-                          label="M"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="30"
-                          label="L"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="40"
-                          label="XL"
-                          className={styles.datalist_options}
-                        ></option>
-                      </datalist>
+                      />
                     </div>
-                  </div>
-                  <div className={styles.image_option_item}>
-                    <label htmlFor="padding" className={styles.option_title}>
-                      Largeur du passe-partout
-                    </label>
-                    <div className={styles.option_inputs}>
-                      <input
-                        type="range"
-                        name="padding"
-                        id="padding"
-                        min="0"
-                        max="128"
-                        value={inputPaddingValue}
-                        step="32"
-                        list="markers2"
-                        onChange={(event) =>
-                          handlePaddingOptions(event.target.value)
-                        }
-                        className={styles.option_inputs}
-                      ></input>
-                      <datalist id="markers2" className={styles.datalist}>
-                        <option
-                          value="0"
-                          label="0"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="32"
-                          label="S"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="64"
-                          label="M"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="96"
-                          label="L"
-                          className={styles.datalist_options}
-                        ></option>
-                        <option
-                          value="128"
-                          label="XL"
-                          className={styles.datalist_options}
-                        ></option>
-                      </datalist>
+                    <div className={styles.image_option_item}>
+                      <label htmlFor="frame" className={styles.option_title}>
+                        Largeur du cadre
+                      </label>
+                      <div className={styles.option_inputs}>
+                        <input
+                          type="range"
+                          name="frame"
+                          id="frame"
+                          min="0"
+                          max="40"
+                          value={inputFrameValue}
+                          step="10"
+                          list="markers"
+                          onChange={(event) =>
+                            handleFrameOptions(event.target.value)
+                          }
+                          className={styles.option_inputs}
+                        ></input>
+                        <datalist id="markers" className={styles.datalist}>
+                          <option
+                            value="0"
+                            label="0"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="10"
+                            label="S"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="20"
+                            label="M"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="30"
+                            label="L"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="40"
+                            label="XL"
+                            className={styles.datalist_options}
+                          ></option>
+                        </datalist>
+                      </div>
+                    </div>
+                    <div className={styles.image_option_item}>
+                      <label htmlFor="padding" className={styles.option_title}>
+                        Largeur du passe-partout
+                      </label>
+                      <div className={styles.option_inputs}>
+                        <input
+                          type="range"
+                          name="padding"
+                          id="padding"
+                          min="0"
+                          max="128"
+                          value={inputPaddingValue}
+                          step="32"
+                          list="markers2"
+                          onChange={(event) =>
+                            handlePaddingOptions(event.target.value)
+                          }
+                          className={styles.option_inputs}
+                        ></input>
+                        <datalist id="markers2" className={styles.datalist}>
+                          <option
+                            value="0"
+                            label="0"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="32"
+                            label="S"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="64"
+                            label="M"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="96"
+                            label="L"
+                            className={styles.datalist_options}
+                          ></option>
+                          <option
+                            value="128"
+                            label="XL"
+                            className={styles.datalist_options}
+                          ></option>
+                        </datalist>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </form>
-          </div>
-        </dialog>
-      )}
+              </form>
+            </div>
+          </motion.dialog>
+        )}
+      </AnimatePresence>
     </>
   );
 };

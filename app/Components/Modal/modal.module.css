@@ -15,7 +15,6 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
-  z-index: 99;
 }
 
 .modal_image_container {
@@ -144,6 +143,12 @@
 
 .hidden_mobile {
   display: none;
+}
+
+.modal_bg,
+.modal_button,
+.mobile_buttons_container {
+  z-index: 99;
 }
 
 /***** MEDIA QUERIES *****/
