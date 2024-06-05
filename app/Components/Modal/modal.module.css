@@ -147,7 +147,8 @@
 
 .modal_bg,
 .modal_button,
-.mobile_buttons_container {
+.mobile_buttons_container,
+.image_options_content {
   z-index: 99;
 }
 
@@ -199,5 +200,11 @@
   .image_options_container,
   .image_options_content {
     display: none;
+  }
+
+  .modal_interaction_container {
+    bottom: 0;
+    left: var(--24px);
+    margin-bottom: 0;
   }
 }
