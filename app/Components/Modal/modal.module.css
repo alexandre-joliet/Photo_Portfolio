@@ -106,7 +106,7 @@
   box-shadow: var(--box-shadow-basic-options);
   padding: var(--16px) var(--24px);
   position: absolute;
-  top: -16rem;
+  top: -21rem;
 }
 
 .open {

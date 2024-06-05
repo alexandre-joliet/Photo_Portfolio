@@ -99,15 +99,21 @@ const Modal = ({
   const [inputFrameValue, setInputFrameValue] = useState(0);
   const [paddingValue, setPaddingValue] = useState("");
   const [inputPaddingValue, setInputPaddingValue] = useState(0);
+  const [frameColorValue, setFrameColorValue] = useState("#000000");
 
   const handleFrameOptions = (value: any) => {
     setInputFrameValue(value);
-    setFrameValue(`${value}px solid black`);
+    setFrameValue(`${value}px solid ${frameColorValue}`);
   };
 
   const handlePaddingOptions = (value: any) => {
     setInputPaddingValue(value);
     setPaddingValue(`${value}px`);
+  };
+
+  const handleColorOptions = (value: any) => {
+    setFrameColorValue(value);
+    setFrameValue(`${inputFrameValue}px solid ${frameColorValue}`);
   };
 
   return (
@@ -186,6 +192,20 @@ const Modal = ({
                 <div
                   className={`${styles.image_options_content} ${openOptionsContainer}`}
                 >
+                  <div className={styles.image_option_item}>
+                    <label htmlFor="color" className={styles.option_title}>
+                      Couleur du cadre
+                    </label>
+                    <input
+                      type="color"
+                      name="color"
+                      id="color"
+                      value={frameColorValue}
+                      onChange={(event) =>
+                        handleColorOptions(event.target.value)
+                      }
+                    />
+                  </div>
                   <div className={styles.image_option_item}>
                     <label htmlFor="frame" className={styles.option_title}>
                       Largeur du cadre
