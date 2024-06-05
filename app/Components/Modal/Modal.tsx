@@ -38,7 +38,7 @@ const Modal = ({
     if (id <= 1) {
       id = 2;
     }
-    console.log(imageId);
+    // console.log(imageId);
     let previousId = imageShown.id - 1;
     if (previousId < 0) {
       previousId = 0;
@@ -56,8 +56,8 @@ const Modal = ({
     if (id > images.length - 1) {
       id = images.length - 1;
     }
-    console.log(imageId);
 
+    // console.log(imageId);
     let nextId = imageShown.id + 1;
     if (nextId > images.length - 1) {
       nextId = images.length - 1;
@@ -68,6 +68,15 @@ const Modal = ({
     setUrl(nextImage.url);
     setImageShown(nextImage);
     setImageId(id + 1);
+  };
+
+  const handleArrowKeyDown = (event: any) => {
+    if (event.key === "ArrowLeft") {
+      handlePreviousImage();
+    }
+    if (event.key === "ArrowRight") {
+      handleNextImage();
+    }
   };
 
   // ***** OPTIONS *****
@@ -119,7 +128,7 @@ const Modal = ({
   return (
     <>
       {openModal && (
-        <dialog open className={styles.modal_bg}>
+        <dialog open className={styles.modal_bg} onKeyDown={handleArrowKeyDown}>
           <button
             onClick={handleCloseModal}
             className={`${styles.modal_button} ${styles.button_close} ${styles.button_close_mobile} ${styles.hidden_mobile}`}
@@ -155,7 +164,7 @@ const Modal = ({
               onClick={handleNextImage}
               className={`${styles.modal_button} ${styles.button_arrows} `}
             >
-              <Image src={nextIcon} alt="Image suivant"></Image>
+              <Image src={nextIcon} alt="Image suivante"></Image>
             </button>
           </div>
           <div className={styles.modal_interaction_container}>
