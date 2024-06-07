@@ -48,6 +48,13 @@ const Nav = () => {
             <Link href="/photo/test" className={styles.nav_links}>
               <li className={styles.list_item}>Test fetch</li>
             </Link> */}
+            <p className={styles.nav_categories}>Animaux</p>
+            <Link
+              href="/photo/vallee-des-singes_2024"
+              className={styles.nav_links}
+            >
+              <li className={styles.list_item}>La Vallée des Singes</li>
+            </Link>
             <p className={styles.nav_categories}>Portraits</p>
             <Link
               href="/photo/portraits_mariana-sunflowers"
