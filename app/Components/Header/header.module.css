@@ -12,6 +12,10 @@
   z-index: 5;
 }
 
+.header_title_wrapper a {
+  text-decoration: none;
+}
+
 .header_title {
   color: black;
   font-size: var(--48px);
