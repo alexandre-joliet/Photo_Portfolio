@@ -31,7 +31,7 @@ const Nav = () => {
   }, []);
 
   // ***** MENU ITEMS *****
-  const normandyBeactRace = menuItems.normandyBeachRace;
+  const normandyBeachRace = menuItems.normandyBeachRace;
   const usMotorShow = menuItems.usMotorShow;
 
   return (
@@ -63,7 +63,10 @@ const Nav = () => {
               <li className={styles.list_item}>Mariana - Sunflowers</li>
             </Link>
             <p className={styles.nav_categories}>Véhicules</p>
-            <Accordion data={normandyBeactRace} />
+            <Link href="/photo/24h_le_mans24" className={styles.nav_links}>
+              <li className={styles.list_item}>24H Le Mans 2024</li>
+            </Link>
+            <Accordion data={normandyBeachRace} />
             <Accordion data={usMotorShow} />
             <p className={styles.nav_categories}>Voyage</p>
             <Link href="/photo/202304_menorca" className={styles.nav_links}>
