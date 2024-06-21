@@ -4,13 +4,13 @@ normandyBeachRace: {
   title: "Normandy Beach Race",
   content: [
     {
+      title: "2023",
+      url: "/photo/normandy_beach_race23"
+    },
+    {
       title: "2021",
       url: "/photo/normandy_beach_race21"
     },
-    {
-      title: "2023",
-      url: "/photo/normandy_beach_race23"
-    }
   ],
 },
 
