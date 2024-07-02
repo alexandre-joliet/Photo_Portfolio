@@ -14,6 +14,16 @@ normandyBeachRace: {
   ],
 },
 
+leMans24h: {
+  title: "24h Le Mans",
+  content: [
+    {
+      title: "2024",
+      url: "/photo/24h_le_mans24"
+    },
+  ],
+},
+
 usMotorShow: {
   title: "US Motor Show",
   content: [
