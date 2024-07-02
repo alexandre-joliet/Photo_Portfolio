@@ -25,6 +25,22 @@
   width: 100%;
 }
 
+.intro_content {
+  margin-top: 1.875rem;
+  margin-bottom: var(--margin-large);
+  /* font-size: var(--20px); */
+}
+
+.intro_title {
+  font-weight: 700;
+  font-size: var(--18px);
+}
+
+.intro_title,
+.intro_text {
+  margin-bottom: var(--margin-small);
+}
+
 .images_container {
   display: flex;
   flex-wrap: wrap;
