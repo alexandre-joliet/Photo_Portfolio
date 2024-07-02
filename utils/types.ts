@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export type ImageProps = {
   id: number;
   asset_id: string,
@@ -17,3 +19,8 @@ export type MenuItemsProps = {
     } [],
 }
 
+export type CategoryProps = {
+  url: string;
+  title: string;
+  picture: StaticImageData;
+}
