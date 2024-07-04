@@ -24,3 +24,7 @@ export type CategoryProps = {
   title: string;
   picture: StaticImageData;
 }
+
+// export type PhotoCategoriesProp = {
+//   categories: CategoryProps[];
+// }
