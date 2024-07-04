@@ -4,32 +4,42 @@
 }
 
 .card_wrapper {
-  padding-left: 17rem;
   border-radius: var(--border-radius-small);
   cursor: pointer;
+  padding-left: 17rem;
   position: relative;
   height: 400px;
   width: 47.5%;
   transition: all ease-in-out 300ms;
+}
 
-  /* width: 40rem; */
-  /* height: 40rem; */
-  /* position: relative; */
-  /* background-image: url("../../../public/images/avatar.jpg"); */
-  /* object-fit: cover; */
+.card_wrapper:hover {
+  box-shadow: var(--shadow-elevation-medium);
+  opacity: 0.9;
 }
 
 .image {
-  /* border: 20px solid white; */
   border-radius: var(--border-radius-small);
   box-shadow: var(--shadow-elevation-medium);
   object-fit: cover;
   pointer-events: none;
+  filter: brightness(70%);
+}
+
+.card_title {
+  text-shadow: 1px 1px 10px black;
+  color: white;
+  font-size: var(--28px);
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /***** MEDIA QUERIES *****/
 @media all and (max-width: 767px) {
-  .image_wrapper {
+  .card_wrapper {
     height: 200px;
     width: 100%;
   }

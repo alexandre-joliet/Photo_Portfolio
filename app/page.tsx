@@ -2,14 +2,14 @@ import styles from "./page.module.css";
 import Header from "./Components/Header/Header";
 import { NextPage } from "next";
 import CategoryCard from "./Components/CategoryCard/CategoryCard";
-import test from "../public/images/avatar.jpg";
+import { photoCategories } from "@/utils/photoCategories";
 
 const Home: NextPage = async () => {
-  const testCategory = {
-    url: "/photo/24h_le_mans24",
-    title: "Test",
-    picture: { src: "/images/avatar.jpg", width: 100, height: 100 },
-  };
+  // const testCategory = {
+  //   url: "/photo/24h_le_mans24",
+  //   title: "Test",
+  //   picture: { src: "/images/test.jpg", width: 100, height: 100 },
+  // };
 
   return (
     <>
@@ -19,19 +19,27 @@ const Home: NextPage = async () => {
           <article className={styles.intro_content}>
             <p className={styles.intro_title}>Bienvenue !</p>
             <p className={styles.intro_text}>
-              Vous trouverez ici une sélection de photographies réalisées par
-              mes soins. Je ne suis pas photographe professionnel mais juste un
-              amateur éclairé !
+              Je m&apos;appelle Alexandre Joliet et je suis photographe amateur
+              passionné. Vous trouverez ici une sélection de photographies
+              réalisées par mes soins.
             </p>
             <p className={styles.intro_text}>
               Retrouvez les différentes catégories ci-dessous et tous les albums
               depuis le menu à tout moment.
             </p>
+            <p className={styles.intro_text}>
+              J&apos;espère que vous prendrez autant de plaisir à explorer mes
+              œuvres que j&apos;en ai eu à les créer.
+            </p>
             <p>Bon visionnage !</p>
           </article>
           <div className={styles.images_container}>
-            <CategoryCard data={testCategory}></CategoryCard>
-            <CategoryCard data={testCategory}></CategoryCard>
+            {photoCategories.map((item: any) => (
+              <CategoryCard data={item} key={item.title}></CategoryCard>
+            ))}
+
+            {/* <CategoryCard data={testCategory}></CategoryCard>
+            <CategoryCard data={testCategory}></CategoryCard> */}
           </div>
         </div>
       </main>

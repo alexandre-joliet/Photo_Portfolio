@@ -9,20 +9,20 @@ type CategoryCardProps = {
 
 const CategoryCard = ({ data }: CategoryCardProps) => {
   return (
-    <div className={styles.card_wrapper}>
-      <Link href={data.url}>
-        <Image
-          src={data.picture.src}
-          alt=""
-          fill
-          // width={data.picture.width}
-          // height={data.picture.height}
-          sizes="(max-width: 1440px) 100vw, 50vw"
-          className={styles.image}
-        ></Image>
-        {/* {data.title} */}
-      </Link>
-    </div>
+    <Link href={data.url} className={styles.card_wrapper}>
+      {/* <div className={styles.card_wrapper}> */}
+      <Image
+        src={data.picture.src}
+        alt=""
+        fill
+        // width={data.picture.width}
+        // height={data.picture.height}
+        sizes="(max-width: 1440px) 100vw, 50vw"
+        className={styles.image}
+      ></Image>
+      <h4 className={styles.card_title}>{data.title}</h4>
+      {/* </div> */}
+    </Link>
   );
 };
 
