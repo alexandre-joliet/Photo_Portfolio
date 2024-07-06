@@ -21,7 +21,7 @@ export type MenuItemsProps = {
 
 export type CategoryProps = {
   url: string;
-  title: string;
+  name: string;
   picture: StaticImageData;
 }
 
