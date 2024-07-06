@@ -8,20 +8,23 @@ type CategoryCardProps = {
 };
 
 const CategoryCard = ({ data }: CategoryCardProps) => {
+  // console.log(data);
+
+  let renamedValue = data.name;
+  if (data.name === "Vehicules") {
+    renamedValue = "Véhicules";
+  }
+
   return (
-    <Link href={data.url} className={styles.card_wrapper}>
-      {/* <div className={styles.card_wrapper}> */}
+    <Link href={`/photo/${data.name}`} className={styles.card_wrapper}>
       <Image
-        src={data.picture.src}
+        src={`/images/categories/${renamedValue}.avif`}
         alt=""
         fill
-        // width={data.picture.width}
-        // height={data.picture.height}
         sizes="(max-width: 1440px) 100vw, 50vw"
         className={styles.image}
       ></Image>
-      <h4 className={styles.card_title}>{data.title}</h4>
-      {/* </div> */}
+      <h4 className={styles.card_title}>{renamedValue}</h4>
     </Link>
   );
 };
