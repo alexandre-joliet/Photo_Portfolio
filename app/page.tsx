@@ -2,14 +2,10 @@ import styles from "./page.module.css";
 import Header from "./Components/Header/Header";
 import { NextPage } from "next";
 import CategoryCard from "./Components/CategoryCard/CategoryCard";
-import { photoCategories } from "@/utils/photoCategories";
+import handleFetch from "@/utils/fetch";
 
 const Home: NextPage = async () => {
-  // const testCategory = {
-  //   url: "/photo/24h_le_mans24",
-  //   title: "Test",
-  //   picture: { src: "/images/test.jpg", width: 100, height: 100 },
-  // };
+  const data = await handleFetch.fetchAllFolders();
 
   return (
     <>
@@ -24,8 +20,8 @@ const Home: NextPage = async () => {
               réalisées par mes soins.
             </p>
             <p className={styles.intro_text}>
-              Retrouvez les différentes catégories ci-dessous et tous les albums
-              depuis le menu à tout moment.
+              Découvrez les différentes catégories ci-dessous et accédez à tous
+              les albums depuis le menu à tout moment.
             </p>
             <p className={styles.intro_text}>
               J&apos;espère que vous prendrez autant de plaisir à explorer mes
@@ -34,8 +30,8 @@ const Home: NextPage = async () => {
             <p>Bon visionnage !</p>
           </article>
           <div className={styles.images_container}>
-            {photoCategories.map((item: any) => (
-              <CategoryCard data={item} key={item.title}></CategoryCard>
+            {data.folders.map((item: any) => (
+              <CategoryCard data={item} key={item.name}></CategoryCard>
             ))}
 
             {/* <CategoryCard data={testCategory}></CategoryCard>
