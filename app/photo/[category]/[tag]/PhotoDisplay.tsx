@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import styles from "../../page.module.css";
+import styles from "../../../page.module.css";
 import { useState } from "react";
 import Modal from "@/app/Components/Modal/Modal";
 import { ImageProps } from "@/utils/types";
