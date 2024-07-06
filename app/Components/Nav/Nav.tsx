@@ -43,68 +43,99 @@ const Nav = () => {
         </button>
         <div className={`${styles.nav_container} ${openClass}`}>
           <ul className={styles.nav_list}>
-            {" "}
             Galeries
             {/* <p className={styles.nav_categories}>Test</p>
             <Link href="/photo/test" className={styles.nav_links}>
               <li className={styles.list_item}>Test fetch</li>
             </Link> */}
-            <p className={styles.nav_categories}>Animaux</p>
+            <Link href="/photo/Animaux/" className={styles.nav_categories}>
+              Animaux
+            </Link>
             <Link
-              href="/photo/vallee-des-singes_2024"
+              href="/photo/Animaux/vallee-des-singes_2024"
               className={styles.nav_links}
             >
               <li className={styles.list_item}>La Vallée des Singes</li>
             </Link>
-            <p className={styles.nav_categories}>Portraits</p>
+            <Link href="/photo/Portraits/" className={styles.nav_categories}>
+              Portraits
+            </Link>
             <Link
-              href="/photo/portraits_mariana-sunflowers"
+              href="/photo/Portraits/portraits_mariana-sunflowers"
               className={styles.nav_links}
             >
               <li className={styles.list_item}>Mariana - Sunflowers</li>
             </Link>
-            <p className={styles.nav_categories}>Véhicules</p>
-            {/* <Link href="/photo/24h_le_mans24" className={styles.nav_links}>
-              <li className={styles.list_item}>24H Le Mans 2024</li>
-            </Link> */}
+            <Link href="/photo/Vehicules/" className={styles.nav_categories}>
+              Véhicules
+            </Link>
             <Accordion data={leMans24h} />
             <Accordion data={normandyBeachRace} />
             <Accordion data={usMotorShow} />
-            <p className={styles.nav_categories}>Voyage</p>
-            <Link href="/photo/202304_menorca" className={styles.nav_links}>
+            <Link href="/photo/Voyage/" className={styles.nav_categories}>
+              Voyage
+            </Link>
+            <Link
+              href="/photo/Voyage/202304_menorca"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2023.04 - Menorca</li>
             </Link>
-            <Link href="/photo/202207_bretagne" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/202207_bretagne"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2022.07 - Bretagne</li>
             </Link>
-            <Link href="/photo/202106_corse" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/202106_corse"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2021.06 - Corse</li>
             </Link>
-            <Link href="/photo/202003_srilanka" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/202003_srilanka"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2020.03 - Sri Lanka</li>
             </Link>
             {/* <Link href="/photo/201911_lisboa" className={styles.nav_links}>
               <li className={styles.list_item}>2019.11 - Lisboa</li>
             </Link> */}
-            <Link href="/photo/201907_lozere" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/201907_lozere"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2019.07 - Lozère & Vercors</li>
             </Link>
-            <Link href="/photo/201810_bali" className={styles.nav_links}>
+            <Link href="/photo/Voyage/201810_bali" className={styles.nav_links}>
               <li className={styles.list_item}>2018.10 - Bali</li>
             </Link>
-            <Link href="/photo/201805_venise" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/201805_venise"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2018.05 - Venise</li>
             </Link>
-            <Link href="/photo/201710_bali" className={styles.nav_links}>
+            <Link href="/photo/Voyage/201710_bali" className={styles.nav_links}>
               <li className={styles.list_item}>2017.10 - Bali</li>
             </Link>
-            <Link href="/photo/201701_abudhabi" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/201701_abudhabi"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2017.01 - Abu Dhabi</li>
             </Link>
-            <Link href="/photo/201701_dubai" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/201701_dubai"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>2017.01 - Dubaï</li>
             </Link>
-            <Link href="/photo/201701_dubaimarina" className={styles.nav_links}>
+            <Link
+              href="/photo/Voyage/201701_dubaimarina"
+              className={styles.nav_links}
+            >
               <li className={styles.list_item}>
                 2017.01 - Dubaï Marina by Night
               </li>
