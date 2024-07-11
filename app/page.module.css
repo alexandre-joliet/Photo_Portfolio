@@ -122,9 +122,9 @@
 }
 
 @media all and (min-width: 1200px) and (max-width: 1439px) {
-  .images_container {
+  /* .images_container {
     flex-direction: column;
-  }
+  } */
 
   .image_wrapper {
     height: 500px;
