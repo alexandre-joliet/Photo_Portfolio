@@ -12,8 +12,14 @@
   width: 275px;
 }
 
+.nav_section,
 .nav_list {
   font-size: var(--22px);
+  margin-bottom: var(--margin-small);
+  text-decoration: none;
+}
+
+.nav_list {
   overflow-y: auto;
 }
 
@@ -37,6 +43,7 @@
   text-decoration: none;
 }
 
+.nav_section,
 .nav_list,
 .nav_links:hover {
   font-weight: 700;

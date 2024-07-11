@@ -42,6 +42,9 @@ const Nav = () => {
           <span className={styles.button_bar}></span>
         </button>
         <div className={`${styles.nav_container} ${openClass}`}>
+          <Link href="/" className={styles.nav_section}>
+            Accueil
+          </Link>
           <ul className={styles.nav_list}>
             Galeries
             {/* <p className={styles.nav_categories}>Test</p>
