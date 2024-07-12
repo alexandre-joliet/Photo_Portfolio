@@ -1,7 +1,7 @@
 import styles from "./contact.module.css";
 import Header from "../Components/Header/Header";
 import Image from "next/image";
-import Avatar from "../../public/images/bio.avif";
+import Avatar from "../../public/images/bio.jpg";
 
 const Contact = () => {
   return (
