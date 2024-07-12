@@ -45,6 +45,9 @@ const Nav = () => {
           <Link href="/" className={styles.nav_section}>
             Accueil
           </Link>
+          <Link href="/contact" className={styles.nav_section}>
+            Bio / Contact
+          </Link>
           <p className={styles.nav_section}>Galeries</p>
           <ul className={styles.nav_list}>
             {/* Galeries */}
@@ -145,9 +148,6 @@ const Nav = () => {
               </li>
             </Link>
           </ul>
-          <Link href="/contact" className={styles.nav_section}>
-            Bio / Contact
-          </Link>
         </div>
       </nav>
     </>
