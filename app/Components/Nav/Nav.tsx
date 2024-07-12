@@ -45,8 +45,9 @@ const Nav = () => {
           <Link href="/" className={styles.nav_section}>
             Accueil
           </Link>
+          <p className={styles.nav_section}>Galeries</p>
           <ul className={styles.nav_list}>
-            Galeries
+            {/* Galeries */}
             {/* <p className={styles.nav_categories}>Test</p>
             <Link href="/photo/test" className={styles.nav_links}>
               <li className={styles.list_item}>Test fetch</li>
@@ -144,6 +145,9 @@ const Nav = () => {
               </li>
             </Link>
           </ul>
+          <Link href="/contact" className={styles.nav_section}>
+            Bio / Contact
+          </Link>
         </div>
       </nav>
     </>
