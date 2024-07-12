@@ -9,7 +9,7 @@ const handleFetch = {
     .max_results(400)
     .execute();
 
-    console.log(results);
+    // console.log(results);
 
     let folderName: string = results.resources[0].asset_folder;
     const splitFolderName = folderName.split('/');
