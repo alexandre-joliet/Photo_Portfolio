@@ -13,7 +13,8 @@
 }
 
 .main_wrapper,
-.bio_container {
+.bio_container,
+.contact_container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -38,17 +39,38 @@
 }
 
 .bio_content {
-  padding: var(--16px);
   width: 75%;
 }
 
-.bio_title {
+.bio_content,
+.contact_content {
+  padding: var(--16px);
+}
+
+.contact_content {
+  width: 100%;
+}
+
+.bio_content,
+.hr {
+  margin-bottom: var(--margin-large);
+}
+
+.bio_title,
+.contact_title {
   font-weight: 700;
   font-size: var(--22px);
 }
 
-.bio_text {
+.bio_text,
+.contact_text {
   margin-bottom: var(--margin-small);
+}
+
+.hr {
+  border: none;
+  border-top: 1px solid var(--light-variation-deco-border);
+  width: 50%;
 }
 
 /***** MEDIA QUERIES *****/

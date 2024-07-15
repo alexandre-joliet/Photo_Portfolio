@@ -23,7 +23,7 @@ const Contact = () => {
             <article className={styles.bio_content}>
               <p className={styles.bio_text}>
                 Ma passion pour la photographie trouve ses racines dans un geste
-                simple mais significatif de mon père. Lorsque j&apos;étais plus
+                simple, mais significatif de mon père. Lorsque j&apos;étais plus
                 jeune, j&apos;aimais emprunter son appareil photo pour faire
                 comme lui, comme les grands. Voyant mon intérêt grandissant, il
                 m&apos;a finalement offert l&apos;un de ses appareils photo, un
@@ -37,8 +37,8 @@ const Contact = () => {
                 transformer en souvenirs visuels. Chaque photo que je prenais me
                 permettait de voir le monde sous un nouvel angle. J&apos;ai
                 également découvert par la suite le travail de post-production
-                et le fait que je pouvais encore sublimer davantage la réalité
-                et exprimer une certaine vision dans mes clichés.
+                et le fait de pouvoir encore sublimer davantage la réalité et
+                exprimer une certaine vision dans mes clichés.
               </p>
               <p className={styles.bio_text}>
                 Aujourd&apos;hui, en tant que photographe amateur, je poursuis
@@ -56,6 +56,19 @@ const Contact = () => {
                 œuvres que j&apos;en ai eu à les créer.
               </p>
               <p>Bon visionnage !</p>
+            </article>
+            <hr className={styles.hr} />
+          </div>
+          <div className={styles.contact_container}>
+            <p className={styles.contact_title}>Contact</p>
+            <article className={styles.contact_content}>
+              <p className={styles.contact_text}>
+                Email:{" "}
+                <a href="mailto: alexandre.joliet@gmail.com">
+                  {" "}
+                  alexandre.joliet@gmail.com
+                </a>
+              </p>
             </article>
           </div>
         </div>
