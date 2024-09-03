@@ -4,6 +4,7 @@ import styles from "../../../page.module.css";
 import { useState } from "react";
 import Modal from "@/app/Components/Modal/Modal";
 import { ImageProps } from "@/utils/types";
+import { folderDetails } from "../../../../utils/foldersDetails";
 
 type PhotoDisplayProps = {
   data: {
@@ -15,6 +16,10 @@ type PhotoDisplayProps = {
 const PhotoDisplay = ({ data }: PhotoDisplayProps) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [imageInfos, setImageInfos] = useState<ImageProps>();
+
+  const folderSelected = folderDetails.find(
+    (item) => item.title === data.folderName
+  );
 
   const images = data.imagesArray;
 
@@ -33,6 +38,7 @@ const PhotoDisplay = ({ data }: PhotoDisplayProps) => {
         <b>Album : </b>
         <em>{data.folderName}</em>
       </h3>
+      <p className={styles.page_text}>{folderSelected?.text}</p>
       <div className={styles.images_container}>
         {data.imagesArray.map((item: any) => (
           <div
