@@ -58,6 +58,9 @@ const Nav = () => {
             <Link href="/photo/Animaux/" className={styles.nav_categories}>
               Animaux
             </Link>
+            <Link href="/photo/Animaux/chaussette" className={styles.nav_links}>
+              <li className={styles.list_item}>Chaussette</li>
+            </Link>
             <Link
               href="/photo/Animaux/vallee-des-singes_2024"
               className={styles.nav_links}
