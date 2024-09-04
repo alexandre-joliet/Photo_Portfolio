@@ -40,22 +40,6 @@ const Modal = ({
     }
   }, [selectedImage, openModal]);
 
-  // useEffect(() => {
-  //   if (selectedImage) {
-  //     setImageShown(selectedImage);
-  //     setUrl(selectedImage.url);
-  //     setImageId(selectedImage.id + 1);
-  //   }
-  // }, [selectedImage]);
-
-  // useEffect(() => {
-  //   if (!openModal) {
-  //     setImageShown(selectedImage);
-  //     setUrl("");
-  //     setImageId(0);
-  //   }
-  // }, [openModal, selectedImage]);
-
   const handlePreviousImage = () => {
     let id = imageShown.id + 1;
     if (id <= 1) {
@@ -202,7 +186,7 @@ const Modal = ({
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
+                x: { type: "spring", stiffness: 400, damping: 40 },
                 opacity: { duration: 0.2 },
               }}
             >
@@ -210,7 +194,7 @@ const Modal = ({
                 src={url}
                 width={2048}
                 height={1024}
-                alt="Picture of the author"
+                alt=""
                 className={`${styles.modal_image}`}
                 sizes="(max-width: 1440px) 100vw, 80vw"
                 style={{
