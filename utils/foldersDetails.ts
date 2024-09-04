@@ -8,7 +8,7 @@ export const folderDetails = [
   },
   {
     title: "Chaussette",
-    text: "Chaussette, c'était notre petite boule de poils adorée. Elle n'a pas eu un début de vie facile et a connu plusieurs abandons avant qu'on ne la recueille en Décembre 2021. Très méfiante et peureuse au début, il lui a fallu du temps avant de s'ouvrir à nous. Mais une fois qu'elle nous a fait confiance, elle a été un vrai amour de chat jusqu'à la fin. La maladie l'a malheureusement emportée en Août 2023, à 2 ans et demi à peine. Son départ à laisser un grand vide dans la maison, mais elle restera à jamais dans nos coeurs ❤️",
+    text: "Chaussette, c'était notre petite boule de poils adorée. Elle n'a pas eu un début de vie facile et a connu plusieurs abandons avant qu'on ne la recueille en Décembre 2021. Très méfiante et peureuse au début, il lui a fallu du temps avant de s'ouvrir à nous. Mais une fois qu'elle nous a fait confiance, elle a été un vrai amour de chat jusqu'à la fin. La maladie l'a malheureusement emportée en Août 2023, à 2 ans et demi à peine. Son départ a laissé un grand vide dans la maison, mais elle restera à jamais dans nos coeurs ❤️",
     tag: "chaussette",
   },
  {
