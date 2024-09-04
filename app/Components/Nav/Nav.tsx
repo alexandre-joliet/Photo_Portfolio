@@ -48,6 +48,9 @@ const Nav = () => {
           <Link href="/contact" className={styles.nav_section}>
             Bio / Contact
           </Link>
+          <Link href="/mentions-legales" className={styles.nav_section}>
+            Mentions légales
+          </Link>
           <p className={styles.nav_section}>Galeries</p>
           <ul className={styles.nav_list}>
             {/* Galeries */}
