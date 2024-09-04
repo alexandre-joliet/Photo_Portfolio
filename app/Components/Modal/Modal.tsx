@@ -120,14 +120,14 @@ const Modal = ({
   const minSwipeDistance = 50;
 
   // The type annotation 'TouchEventHandler<HTMLDivElement>' ensures that the function has the correct signature for a touch event handler on an HTML <div> element.
-  const handleTouchStart: TouchEventHandler<HTMLDivElement> = (event) => {
+  const handleTouchStart: TouchEventHandler<HTMLDialogElement> = (event) => {
     // Reset the touchEnd value
     setTouchEnd(null);
     // Capture the current start point of touch event with clientX coordinates
     setTouchStart(event.targetTouches[0].clientX);
   };
 
-  const handleTouchMove: TouchEventHandler<HTMLDivElement> = (event) =>
+  const handleTouchMove: TouchEventHandler<HTMLDialogElement> = (event) =>
     // Capture the current point of touch event with clientX coordinates
     setTouchEnd(event.targetTouches[0].clientX);
 
@@ -138,9 +138,9 @@ const Modal = ({
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
     if (isLeftSwipe) {
-      handlePreviousImage();
-    } else if (isRightSwipe) {
       handleNextImage();
+    } else if (isRightSwipe) {
+      handlePreviousImage();
     }
   };
 
@@ -202,6 +202,9 @@ const Modal = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             <button
               onClick={handleCloseModal}
@@ -221,9 +224,6 @@ const Modal = ({
                 x: { type: "spring", stiffness: 400, damping: 40 },
                 opacity: { duration: 0.2 },
               }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
             >
               <Image
                 src={url}
