@@ -32,7 +32,29 @@ const Modal = ({
       setUrl(selectedImage.url);
       setImageId(selectedImage.id + 1);
     }
-  }, [selectedImage]);
+
+    if (!openModal) {
+      setImageShown(selectedImage);
+      setUrl("");
+      setImageId(0);
+    }
+  }, [selectedImage, openModal]);
+
+  // useEffect(() => {
+  //   if (selectedImage) {
+  //     setImageShown(selectedImage);
+  //     setUrl(selectedImage.url);
+  //     setImageId(selectedImage.id + 1);
+  //   }
+  // }, [selectedImage]);
+
+  // useEffect(() => {
+  //   if (!openModal) {
+  //     setImageShown(selectedImage);
+  //     setUrl("");
+  //     setImageId(0);
+  //   }
+  // }, [openModal, selectedImage]);
 
   const handlePreviousImage = () => {
     let id = imageShown.id + 1;
