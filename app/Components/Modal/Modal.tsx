@@ -4,7 +4,7 @@ import styles from "./modal.module.css";
 import closeIcon from "../../../public/icons/close_white_48dp.svg";
 import previousIcon from "../../../public/icons/arrow_back_white-24dp.svg";
 import nextIcon from "../../../public/icons/arrow_forward_white-24dp.svg";
-import { useEffect, useRef, useState } from "react";
+import { TouchEventHandler, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 type ModalProps = {
@@ -112,6 +112,38 @@ const Modal = ({
     },
   };
 
+  // ***** SWIPE *****
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Minimum swipe distance to be considered active
+  const minSwipeDistance = 50;
+
+  // The type annotation 'TouchEventHandler<HTMLDivElement>' ensures that the function has the correct signature for a touch event handler on an HTML <div> element.
+  const handleTouchStart: TouchEventHandler<HTMLDivElement> = (event) => {
+    // Reset the touchEnd value
+    setTouchEnd(null);
+    // Capture the current start point of touch event with clientX coordinates
+    setTouchStart(event.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove: TouchEventHandler<HTMLDivElement> = (event) =>
+    // Capture the current point of touch event with clientX coordinates
+    setTouchEnd(event.targetTouches[0].clientX);
+
+  // We make the comparison between the two coordinates, check if a right or left swipe and implement the logic here
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      handlePreviousImage();
+    } else if (isRightSwipe) {
+      handleNextImage();
+    }
+  };
+
   // ***** OPTIONS *****
   const [openOptions, setOpenOptions] = useState(false);
   const [coloredButton, setColoredButton] = useState(false);
@@ -189,6 +221,9 @@ const Modal = ({
                 x: { type: "spring", stiffness: 400, damping: 40 },
                 opacity: { duration: 0.2 },
               }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <Image
                 src={url}
