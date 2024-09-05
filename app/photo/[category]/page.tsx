@@ -3,31 +3,42 @@ import handleFetch from "@/utils/fetch";
 import styles from "../../page.module.css";
 import FolderCard from "@/app/Components/FolderCard/FolderCard";
 
-const Category = async ({ params }: any) => {
+const Category = async ({ params }: { params: { category: string } }) => {
   const category = params.category;
-  // console.log(category);
 
   const data = await handleFetch.fetchAllFoldersFromCategory(category);
-  // console.log(data);
 
-  return (
-    <>
-      <main className={styles.main}>
-        <Header />
-        <div className={styles.main_wrapper}>
-          <div className={styles.images_container}>
-            {data.folders.map((item: any) => (
-              <FolderCard
-                data={item}
-                category={category}
-                key={item.name}
-              ></FolderCard>
-            ))}
+  if (data.folders.length != 0) {
+    return (
+      <>
+        <main className={styles.main}>
+          <Header />
+          <div className={styles.main_wrapper}>
+            <div className={styles.images_container}>
+              {data.folders.map((item: any) => (
+                <FolderCard
+                  data={item}
+                  category={category}
+                  key={item.name}
+                ></FolderCard>
+              ))}
+            </div>
           </div>
-        </div>
-      </main>
-    </>
-  );
+        </main>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <main className={styles.main}>
+          <Header />
+          <div className={styles.main_wrapper}>
+            <h3 className={styles.page_title}>Aucun résultat trouvé</h3>
+          </div>
+        </main>
+      </>
+    );
+  }
 };
 
 export default Category;

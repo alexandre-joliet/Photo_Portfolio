@@ -3,7 +3,7 @@ import styles from "../../../page.module.css";
 import handleFetch from "@/utils/fetch";
 import PhotoDisplay from "./PhotoDisplay";
 
-const Tag = async ({ params }: any) => {
+const Tag = async ({ params }: { params: { tag: string } }) => {
   const tag = params.tag;
   const data = await handleFetch.fetchAllImages(tag);
 

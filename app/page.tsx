@@ -7,20 +7,35 @@ import handleFetch from "@/utils/fetch";
 const Home: NextPage = async () => {
   const data = await handleFetch.fetchAllFolders();
 
-  return (
-    <>
-      <main className={styles.main}>
-        <Header />
-        <div className={styles.main_wrapper}>
-          <div className={styles.images_container}>
-            {data.folders.map((item: any) => (
-              <CategoryCard data={item} key={item.name}></CategoryCard>
-            ))}
+  console.log(data);
+
+  if (data.folders.length != 0) {
+    return (
+      <>
+        <main className={styles.main}>
+          <Header />
+          <div className={styles.main_wrapper}>
+            <div className={styles.images_container}>
+              {data.folders.map((item: any) => (
+                <CategoryCard data={item} key={item.name}></CategoryCard>
+              ))}
+            </div>
           </div>
-        </div>
-      </main>
-    </>
-  );
+        </main>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <main className={styles.main}>
+          <Header />
+          <div className={styles.main_wrapper}>
+            <h3 className={styles.page_title}>Aucun résultat trouvé</h3>
+          </div>
+        </main>
+      </>
+    );
+  }
 };
 
 export default Home;
