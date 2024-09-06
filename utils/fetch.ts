@@ -57,7 +57,7 @@ fetchAllFolders: async (): Promise<AllFoldersFetchResult> => {
 fetchAllFoldersFromCategory: async (category: string): Promise<CategoryFoldersFetchResult> => { 
   try {
     const results = await cloudinary.v2.api.sub_folders(`photography/${category}`);
-    console.log(results)
+    // console.log(results)
     return results;
     
   } catch (error) {

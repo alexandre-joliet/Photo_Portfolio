@@ -7,7 +7,7 @@ import handleFetch from "@/utils/fetch";
 const Home: NextPage = async () => {
   const data = await handleFetch.fetchAllFolders();
 
-  console.log(data);
+  // console.log(data);
 
   if (data.folders.length != 0) {
     return (
