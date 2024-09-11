@@ -87,6 +87,10 @@ body {
   /* max-width: var(--max-width); */
 }
 
+html:has([data-disable-document-scroll="true"]) {
+  overflow: hidden;
+}
+
 img,
 picture,
 video,

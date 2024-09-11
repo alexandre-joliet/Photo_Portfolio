@@ -205,6 +205,7 @@ const Modal = ({
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            data-disable-document-scroll={openModal}
           >
             <button
               onClick={handleCloseModal}
